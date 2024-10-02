@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './App.css'
 import Logo from '../../assets/images/1.svg'
 import backgroundImage from '../App/bg-hero.png';
+import Image from '../../assets/images/imagem_background.svg';
 function App() {
   const [data, setData] = useState([]);
   const carousel = useRef(null);
@@ -78,12 +79,11 @@ function App() {
       
       </section>
     <>
-    <section className="s-villain">
-        <div className="container">
-        </div>
-      </section><section className="pricing-section">
-          <h1 className="h1-last">GARANTA O SEU !!!<br />
-            ESCOLHA O QUE MAIS TE <br /> ATENDE e se identifica.</h1>
+     <section className="s-villain"  style={{ backgroundImage: `url(${Image})` }}></section>
+
+     <section className="pricing-section">
+          <h5 className="h1-last">GARANTA O SEU !!!
+            ESCOLHA O QUE MAIS TE ATENDE e se identifica.</h5>
 
           <div className="plans-container">
             <div className="plan plan-bronze">

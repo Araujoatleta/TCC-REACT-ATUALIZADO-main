@@ -6,6 +6,7 @@ import Sidebar from '../../components/Menu/Sidebar'
 import logo from '../../assets/images/home.png'
 import './Home.css';
 import backgroundImage from '../../assets/images/background1.png';
+import Image1 from '../../assets/images/imagem.svg';
 import Logo from '../../assets/images/1.svg'
 import Imagem from '../../assets/images/footer.png'
 const Home = () => {
@@ -60,25 +61,8 @@ const Home = () => {
           </p>
           </div>
         </div>
-        <div>
-      <h4>React-Bootstrap Carousel Component</h4>
-      <Carousel>
-        <Carousel.Item>
-          <img
-            src="./1.svg"
-            alt="Image One"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20210425122716/1-300x115.png"
-            alt="Image Two"
-          />
-        </Carousel.Item>
-      </Carousel>
-    </div>
     </section>
-    <section className="s-villain">
+    <section className="s-villain"  style={{ backgroundImage: `url(${Image1})` }}>
 
       <div className="container">
         <img src="../img/i" alt=""/>
