@@ -1,3 +1,4 @@
+import { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -10,10 +11,30 @@ import Image1 from '../../assets/images/imagem.svg';
 import Logo from '../../assets/images/1.svg'
 import Imagem from '../../assets/images/footer.png'
 const Home = () => {
+  const [data, setData] = useState([]);
+  const carousel = useRef(null);
+
+  useEffect(() => {
+    fetch('http://localhost:5173/static/shoes.json')
+      .then((response) => response.json())
+      .then(setData);
+  }, []);
+
+  const handleLeftClick = (e) => {
+    e.preventDefault();
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  };
+
+  const handleRightClick = (e) => {
+    e.preventDefault();
+
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  };
+
+  if (!data || !data.length) return null;
 
     return (
      <>
-     
     <header>     
     <aside>
       <div id="menuToggle">
@@ -62,6 +83,31 @@ const Home = () => {
           </div>
         </div>
     </section>
+    <section className='carousel1'>
+<div className="carousel1" ref={carousel}>
+        {data.map((item) => {
+          const { id, image } = item;
+          return (
+            <div className="item" key={id}>
+              <div className="image">
+                <img src={image} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="button1s">
+        <button className='btt' onClick={handleLeftClick}>
+          <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Left" />
+        </button>
+        </div>
+        <div className="button2s">
+        <button className='btt2' onClick={handleRightClick}>
+          <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" />
+        </button>
+      </div>
+      
+      </section>
     <section className="s-villain"  style={{ backgroundImage: `url(${Image1})` }}>
 
       <div className="container">

@@ -532,7 +532,7 @@ footer .right-area span {
 }
 .carousel1 {
     height: 216px;
-    width: 1388px;
+    width: 1897px;
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -563,22 +563,27 @@ footer .right-area span {
    .button1s {
     width: 5%;
     text-align: center;
-    margin-right: 1220px;
+    margin-right: 1719px;
     position: absolute;
   }
   
   .button2s {
     width: 5%;
     text-align: center;
-    margin-right: -1300px;
+    margin-right: -1774px;
     position: absolute;
   } 
-  .button1s .btt1 {
+   .btt{
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
-  .button1s .btt1:first-child img {
+  .btt2 {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .button1s .btt:first-child img {
     transform: rotate(180deg);
   }
   .pricing-section {

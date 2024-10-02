@@ -359,7 +359,7 @@ background-image: linear-gradient(transparent, #060608);
     margin-bottom: 10px;
   }
   
-  button {
+  .button1 {
     padding: 10px 20px;
     background-color: #4CAF50;
     border: none;
@@ -368,6 +368,4 @@ background-image: linear-gradient(transparent, #060608);
     border-radius: 5px;
   }
   
-  button:hover {
-    background-color: #45a049;
-  }
+ 
