@@ -1,9 +1,30 @@
-
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom'
 import './App.css'
 import Logo from '../../assets/images/1.svg'
 import backgroundImage from '../App/bg-hero.png';
 function App() {
+  const [data, setData] = useState([]);
+  const carousel = useRef(null);
+
+  useEffect(() => {
+    fetch('http://localhost:5173/static/shoes.json')
+      .then((response) => response.json())
+      .then(setData);
+  }, []);
+
+  const handleLeftClick = (e) => {
+    e.preventDefault();
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  };
+
+  const handleRightClick = (e) => {
+    e.preventDefault();
+
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  };
+
+  if (!data || !data.length) return null;
 
   return (
     <>
@@ -31,84 +52,106 @@ function App() {
           </div>
     </div>
 </section>
-    <section className="s-villain">
-      <div className="container">
+<section className='carousel1'>
+<div className="carousel1" ref={carousel}>
+        {data.map((item) => {
+          const { id, image } = item;
+          return (
+            <div className="item" key={id}>
+              <div className="image">
+                <img src={image} />
+              </div>
+            </div>
+          );
+        })}
       </div>
-    </section>
+      <div className="button1s">
+        <button className='btt' onClick={handleLeftClick}>
+          <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Left" />
+        </button>
+        </div>
+        <div className="button2s">
+        <button className='btt2' onClick={handleRightClick}>
+          <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" />
+        </button>
+      </div>
+      
+      </section>
+    <>
+    <section className="s-villain">
+        <div className="container">
+        </div>
+      </section><section className="pricing-section">
+          <h1 className="h1-last">GARANTA O SEU !!!<br />
+            ESCOLHA O QUE MAIS TE <br /> ATENDE e se identifica.</h1>
 
-    <section className="pricing-section">
-     <h1 className="h1-last">GARANTA O SEU !!!<br/>
-      ESCOLHA O QUE MAIS TE <br/> ATENDE e se identifica.</h1>
-
-      <div className="plans-container">
-          <div className="plan plan-bronze">
-            <p className="slogan-secundario">Edição First
-            </p>  
-            <h2>PLAN BRONZE</h2>
+          <div className="plans-container">
+            <div className="plan plan-bronze">
+              <p className="slogan-secundario">Edição First
+              </p>
+              <h2>PLAN BRONZE</h2>
               <ul>
-                  <li>Cortes ilimitados</li>
-                  <li>1 Penteado</li>
+                <li>Cortes ilimitados</li>
+                <li>1 Penteado</li>
               </ul>
               <p className="price">R$ 89,90</p>
               <button>Comprar</button>
-          </div>
+            </div>
 
-          <div className="plan plan-silver">
-             <p className="slogan-principal">Edição Premium
-             </p>
-            <h2>PLAN SILVER</h2>
+            <div className="plan plan-silver">
+              <p className="slogan-principal">Edição Premium
+              </p>
+              <h2>PLAN SILVER</h2>
               <ul>
-                  <li>Luzes</li>
-                  <li>Limpeza de pele</li>
-                  <li>Barboterapia</li>
-                  <li>Prioridade no atendimento</li>
-                  <li>Sombrancelha</li>
-                  <li>Corte ilimitado</li>
-                  <li>Nutrição capilar</li>
-                  <li>Hidratação</li>
+                <li>Luzes</li>
+                <li>Limpeza de pele</li>
+                <li>Barboterapia</li>
+                <li>Prioridade no atendimento</li>
+                <li>Sombrancelha</li>
+                <li>Corte ilimitado</li>
+                <li>Nutrição capilar</li>
+                <li>Hidratação</li>
               </ul>
               <p className="price">R$ 149,90</p>
               <button>Comprar</button>
-          </div>
+            </div>
 
-          <div className="plan plan-deluxe" placeholder="Eduardo">
-            <p className="slogan-terciario">Edição Deluxy</p>
-            <h2>PLAN DELUXE</h2>
+            <div className="plan plan-deluxe" placeholder="Eduardo">
+              <p className="slogan-terciario">Edição Deluxy</p>
+              <h2>PLAN DELUXE</h2>
               <ul>
-                  <li>Luzes</li>
-                  <li>Limpeza de pele</li>
-                  <li>Barboterapia</li>
-                  <li>Prioridade no atendimento</li>
-                  <li>Sombrancelha</li>
-                  <li>Corte ilimitado</li>
-                  <li>Nutrição capilar</li>
-                  <li>Hidratação</li>
-                  <li>Visagismo/Barbearias especiais</li>
-                  <li>2 por 1: Leve um acompanhante uma vez por mês de graça!</li>
-                  <li>Cortes ilimitados</li>
+                <li>Luzes</li>
+                <li>Limpeza de pele</li>
+                <li>Barboterapia</li>
+                <li>Prioridade no atendimento</li>
+                <li>Sombrancelha</li>
+                <li>Corte ilimitado</li>
+                <li>Nutrição capilar</li>
+                <li>Hidratação</li>
+                <li>Visagismo/Barbearias especiais</li>
+                <li>2 por 1: Leve um acompanhante uma vez por mês de graça!</li>
+                <li>Cortes ilimitados</li>
               </ul>
               <p className="price">R$ 399,50</p>
               <button>Comprar</button>
+            </div>
           </div>
-      </div>
-  </section>
+        </section><footer>
+          <div className="container">
+            <div className="left-area">
+              <h3>©Barbearia</h3>
+              <p>Com a nossa Empresa de Intermediação de Serviços de Barbearia, tanto as barbearias quanto os
+                clientes podem desfrutar de uma experiência mais eficiente
+                e satisfatória no mundo dos serviços de corte de cabelo e barbearia.</p>
+            </div>
 
-    <footer>
-      <div className="container">
-        <div className="left-area">
-          <h3>©Barbearia</h3>
-          <p>Com a nossa Empresa de Intermediação de Serviços de Barbearia, tanto as barbearias quanto os
-             clientes podem desfrutar de uma experiência mais eficiente 
-             e satisfatória no mundo dos serviços de corte de cabelo e barbearia.</p>
-        </div>
-        
-        <div className="right-area">
-          <a href="https://designboost.com.br/" target="_blank">
-            <img src="img/1.svg" alt=""/>
-          </a>
-        </div>
-      </div>
-    </footer>
+            <div className="right-area">
+              <a href="https://designboost.com.br/" target="_blank">
+                <img src="img/1.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </footer></>
   </>
       )
       }
