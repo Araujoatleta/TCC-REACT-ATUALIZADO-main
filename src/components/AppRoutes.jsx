@@ -19,6 +19,7 @@ import Cadastro3 from "../templates/Login/Cadastro3"
 import Cadastro4 from "../templates/Login/Cadastro4"
 
 import Relatorio from "../templates/Relatorios/relatorio"
+import Agenda from "../templates/Agenda/Agenda"
 
 const AppRoutes = () => {
   return (
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         <Route path="/cadastro3" element={<Cadastro3 />} />
         <Route path="/cadastro4" element={<Cadastro4 />} />
         <Route path="/relatorio" element={<Relatorio />} />
+        <Route path="/agenda" element={<Agenda />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
 
         <Route path="/mensagem" element={<Mensagem />} />

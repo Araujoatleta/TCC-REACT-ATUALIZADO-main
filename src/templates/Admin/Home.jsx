@@ -63,7 +63,9 @@ const Home = () => {
               <Link to={'/relatorio'}>
                 <li>Relatórios</li>
             </Link>
-
+            <Link to={'/agenda'}>
+                <li>Agenda</li>
+            </Link>
           </ul>
       </div>
   </aside>
