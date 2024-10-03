@@ -163,7 +163,27 @@ const Agenda = () => {
                     </div>
                 </div>
             </section>
-
+    <div className="barbearia-section">
+        <div className="barbearia-info">
+            <img src="https://via.placeholder.com/80" alt="Imagem da barbearia"/>
+            <h3>Batista Barbearia</h3>
+            <p>Média (1239 avaliações)</p>
+            <div class="rating">
+                <span>4.3/5</span>
+                <div class="stars">
+                    <input type="radio" name="star" id="star1"/><label for="star1">★</label>
+                    <input type="radio" name="star" id="star2"/><label for="star2">★</label>
+                    <input type="radio" name="star" id="star3"/><label for="star3">★</label>
+                    <input type="radio" name="star" id="star4"/><label for="star4">★</label>
+                    <input type="radio" name="star" id="star5"/><label for="star5">★</label>
+              </div>
+              </div>           
+        </div>
+        <div class="descricao">
+            Temos os melhores cortes da região metropolitana, nossos clientes saem satisfeitos pois recebem o serviço de maior qualidade!
+        </div>
+        </div>
+        
             {/* Carousel Section */}
             {data.length > 0 && (
                 <section className='carousel1'>
@@ -213,18 +233,37 @@ const Agenda = () => {
                 {/* Your existing content */}
                 {/* ... */}
             </section>
+                        {/* Carousel Section */}
+                        {data.length > 0 && (
+                <section className='carousel1'>
+                    <div className="carousel1" ref={carousel}>
+                        {data.map((item) => {
+                            const { id, image } = item;
+                            return (
+                                <div className="item" key={id}>
+                                    <div className="image">
+                                        <img src={image} alt={`Imagem ${id}`} />
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
 
-            {/* Footer Section */}
-            <footer>
-                {/* Your existing footer content */}
-                {/* ... */}
-                <h2 className="Depoimento">DEPOIMENTOS</h2>
-                <div className="text-section">
-                    <p className="testimonial-text">"Desde que comecei a parceria com a BC (Barber's Club) nunca mais tive problemas com horários e agendamentos"</p>
-                    <p className="author">"R10"</p>
-                    <img src={Imagem} id="imagem-footer" alt="aspas"/>
-                </div>  
-            </footer>  
+                    {/* Buttons for Carousel */}
+                    <div className="button1s">
+                        <button className='btt' onClick={handleLeftClick}>
+                            <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Left" />
+                        </button>
+                    </div>
+
+                    <div className="button2s">
+                        <button className='btt2' onClick={handleRightClick}>
+                            <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" />
+                        </button>
+                    </div>  
+                </section> 
+            )}
+  
         </>
     );
 }
