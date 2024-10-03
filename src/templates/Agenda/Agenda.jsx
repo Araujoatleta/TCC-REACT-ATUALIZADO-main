@@ -201,7 +201,7 @@ const Agenda = () => {
                 <div className="tabs">
                     <button onClick={() => setShowServicos(true)} className={showServicos ? "active" : ""}>Serviços</button>
                 </div>
-               <div className="tabs">
+               <div className="tabs2">
                 <button onClick={() => setShowServicos(false)} className={!showServicos ? "active" : ""}>Horários</button>
                 </div>
                 {/* Render Tables */}

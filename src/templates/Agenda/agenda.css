@@ -721,9 +721,12 @@ body {
 }
 
 .tabs {
-    margin-bottom: 589px;
+    margin-bottom: 811px;
 }
 
+.tabs2 {
+    margin-bottom: 811px;
+}
 button {
     padding: 10px 25px;
     border: none;

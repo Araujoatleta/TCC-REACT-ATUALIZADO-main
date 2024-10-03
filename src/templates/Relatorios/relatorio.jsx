@@ -36,19 +36,29 @@ const Relatorio = () => {
             <span></span>
             <span></span>
             <ul className="menu" data-theme='t-orange'>
-              <Link to={'/'}>
-                <li>Home</li>
+          <Link to={'/'}>
+                  <li>Home</li>
               </Link>
+             
               <Link to={'/home'}>
-                <li>Barber Area</li>
-              </Link>
+        
+                  <li>Barber Area</li>
+                  </Link>
+              
               <Link to={'/desktop'}>
-                <li>Desktop</li>
+                  <li>Desktop</li>
               </Link>
+
+              <a href="#">
+                  <li>Editar Perfil</li>
+              </a>
               <Link to={'/relatorio'}>
                 <li>Relatórios</li>
-              </Link>
-            </ul>
+            </Link>
+            <Link to={'/agenda'}>
+                <li>Agenda</li>
+            </Link>
+          </ul>
           </div>
         </aside>
       </header>
