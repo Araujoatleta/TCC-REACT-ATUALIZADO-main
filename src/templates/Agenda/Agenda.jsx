@@ -200,9 +200,10 @@ const Agenda = () => {
                 {/* Buttons to Toggle Tables */}
                 <div className="tabs">
                     <button onClick={() => setShowServicos(true)} className={showServicos ? "active" : ""}>Serviços</button>
-                    <button onClick={() => setShowServicos(false)} className={!showServicos ? "active" : ""}>Horários</button>
                 </div>
-
+               <div className="tabs">
+                <button onClick={() => setShowServicos(false)} className={!showServicos ? "active" : ""}>Horários</button>
+                </div>
                 {/* Render Tables */}
                 {showServicos ? renderizarTabelaServicos() : renderizarTabelaHorarios()}
             </section>
