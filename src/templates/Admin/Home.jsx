@@ -70,7 +70,6 @@ const Home = () => {
       </div>
   </aside>
     </header>
-
   
   <section className="s-hero"  style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="container">

@@ -77,31 +77,31 @@ const Agenda = () => {
             <img src="https://via.placeholder.com/80" alt="Imagem da barbearia"/>
             <h3>Batista Barbearia</h3>
             <p>Média (1239 avaliações)</p>
-            <div class="rating">
+            <div className="rating">
                 <span>4.3/5</span>
-                <div class="stars">
-                    <input type="radio" name="star" id="star1"/><label for="star1">★</label>
-                    <input type="radio" name="star" id="star2"/><label for="star2">★</label>
-                    <input type="radio" name="star" id="star3"/><label for="star3">★</label>
-                    <input type="radio" name="star" id="star4"/><label for="star4">★</label>
-                    <input type="radio" name="star" id="star5"/><label for="star5">★</label>
+                <div className="stars">
+                    <input type="radio" name="star" id="star1"/><label htmlFor="star1">★</label>
+                    <input type="radio" name="star" id="star2"/><label htmlFor="star2">★</label>
+                    <input type="radio" name="star" id="star3"/><label htmlFor="star3">★</label>
+                    <input type="radio" name="star" id="star4"/><label htmlFor="star4">★</label>
+                    <input type="radio" name="star" id="star5"/><label htmlFor="star5">★</label>
               </div>
               </div>           
         </div>
-        <div class="perfil-form">
+        <div className="perfil-form">
         <h3>Sobre a barbearia</h3>
-            <form>
-                <label for="funcionarios">Quant. de funcionários:</label>
-                <input type="number" id="funcionarios" name="funcionarios"/>
+          <form>
+            <input className='number' type="number" required />
+              <label>Quantidade de funcionarios</label>
 
-                <label for="file">Anexados:</label>
+                <label htmlFor="file">Anexados:</label>
                 <input type="file" id="file" name="file"/>
 
-                <label for="foto">Foto/documento:</label>
+                <label htmlFor="foto">Foto/documento:</label>
                 <input type="radio" id="novo" name="foto" value="novo"/> Novo
                 <input type="radio" id="anexo" name="foto" value="anexo"/> Anexo
 
-                <button type="submit">Alterar</button>
+                <button className='button2' type="submit">Alterar</button>
             </form>
 </div>
 
