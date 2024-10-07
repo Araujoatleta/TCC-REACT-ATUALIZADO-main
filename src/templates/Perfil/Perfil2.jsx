@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
-import './perfil.css';
+import './perfil2.css';
 import backgroundImage from '../../assets/images/background1.png';
 import Image1 from '../../assets/images/imagem.svg';
 
@@ -145,21 +145,17 @@ const Perfil = () => {
                 <div className="perfil-form">
                     <h3>Sobre a barbearia</h3>
                     <form>
-                    <label>Email:</label>
-                        <input className='email' type="email" required />
+                        <label htmlFor="">Nome/Apelido</label>
+                        <input type="nome" id="nome"  className='nome' required />
+                        <label htmlFor="number">Quantidade de Funcionario:</label>
+                        <input type="number" id="number" className='number' required />
 
-                        <label htmlFor="file">Anexados:</label>
+                        <label htmlFor="file">Foto/Documentos:</label>
                         <input type="file" id="file" name="file"/>
 
-                        <ion-icon name="name"></ion-icon>
-                        <input type="nome" required />
-                        <label htmlFor="">Nome e Sobrenome</label>
-                        
-                        <input type="radio" id="novo" name="foto" value="novo"/> Novo
-                        <input type="radio" id="anexo" name="foto" value="anexo"/> Anexo
+            
 
-                        <Link className='button2' to={'/perfil2'}>
-                         Proximo</Link>
+                        <button className='button2' type="submit">Alterar</button>
                     </form>
                 </div>
 

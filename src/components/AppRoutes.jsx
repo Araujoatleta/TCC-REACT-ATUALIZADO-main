@@ -21,6 +21,8 @@ import Cadastro4 from "../templates/Login/Cadastro4"
 import Relatorio from "../templates/Relatorios/relatorio"
 import Agenda from "../templates/Agenda/Agenda"
 import Perfil from "../templates/Perfil/Perfil"
+import Perfil2 from "../templates/Perfil/Perfil2"
+
 
 const AppRoutes = () => {
   return (
@@ -36,6 +38,7 @@ const AppRoutes = () => {
         <Route path="/relatorio" element={<Relatorio />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/perfil2" element={<Perfil2 />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
 
         <Route path="/mensagem" element={<Mensagem />} />

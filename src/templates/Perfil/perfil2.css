@@ -1008,7 +1008,7 @@ input[type="number"],
 input[type="file"] {
     width: 100%;
     margin-bottom: 10px;
-
+    color: var(--gray-dark-01);
     border: none;
 }
 
@@ -1157,4 +1157,7 @@ input[type="file"] {
 .rating label:hover,
 .rating label:hover ~ label {
     color: gold; /* Cor das estrelas quando selecionadas ou em hover */
+}
+input.nome{
+    color: #000306;
 }
