@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './perfil.css';
 import backgroundImage from '../../assets/images/background1.png';
-import Image1 from '../../assets/images/imagem.svg';
+import Image1 from '../../assets/images/3.svg';
 
 const Perfil = () => {
     const [data, setData] = useState([]); // Dados do carrossel
@@ -148,15 +148,18 @@ const Perfil = () => {
                     <label>Email:</label>
                         <input className='email' type="email" required />
 
+                        <label>Nome e Sobrenome</label>
+                        <input className='email' type="nome" required />
+                       
+
                         <label htmlFor="file">Anexados:</label>
                         <input type="file" id="file" name="file"/>
 
-                        <ion-icon name="name"></ion-icon>
-                        <input type="nome" required />
-                        <label htmlFor="">Nome e Sobrenome</label>
+                       
                         
-                        <input type="radio" id="novo" name="foto" value="novo"/> Novo
-                        <input type="radio" id="anexo" name="foto" value="anexo"/> Anexo
+                        <label htmlFor="file">Gênero:</label>
+                        <input type="radio" id="novo" name="foto" value="Masculino"/> Masculino
+                        <input type="radio" id="anexo" name="foto" value="Indefinido"/> Indefinido
 
                         <Link className='button2' to={'/perfil2'}>
                          Proximo</Link>
@@ -170,8 +173,8 @@ const Perfil = () => {
                 {/* Your existing content */}
                 {/* ... */}
             </section>
-
             {/* Carrossel Component */}
+           
             <Carrossel />
         </>
     );

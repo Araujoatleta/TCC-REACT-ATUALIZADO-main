@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './perfil2.css';
 import backgroundImage from '../../assets/images/background1.png';
-import Image1 from '../../assets/images/imagem.svg';
+import Image1 from '../../assets/images/3.svg';
 
 const Perfil = () => {
     const [data, setData] = useState([]); // Dados do carrossel
@@ -166,7 +166,15 @@ const Perfil = () => {
                 {/* Your existing content */}
                 {/* ... */}
             </section>
+            <div className="perfil-custom">
+        <h2>ESTILIZE SEU PERFIL DA SUA FORMA</h2>
+        <p>Seu perfil é o que te define! Altere informações e seja você mesmo!</p>
+    </div>
 
+    <div className="descricao">
+        <h3>DESCRIÇÃO:</h3>
+        <p>Venha já para conhecer a melhor barbearia de todo o Brasil!</p>
+    </div>
             {/* Carrossel Component */}
             <Carrossel />
         </>
