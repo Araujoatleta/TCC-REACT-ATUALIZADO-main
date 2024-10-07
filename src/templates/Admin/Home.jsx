@@ -57,9 +57,9 @@ const Home = () => {
                   <li>Desktop</li>
               </Link>
 
-              <a href="#">
-                  <li>Editar Perfil</li>
-              </a>
+              <Link to={'/perfil'}>
+                 <li>Editar Perfil</li>
+               </Link>
               <Link to={'/relatorio'}>
                 <li>Relatórios</li>
             </Link>
