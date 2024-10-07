@@ -159,6 +159,7 @@ const Perfil = () => {
                         
                         <label htmlFor="file">Gênero:</label>
                         <input type="radio" id="novo" name="foto" value="Masculino"/> Masculino
+                        <input type="radio" id="novo" name="foto" value="Masculino"/> Feminino
                         <input type="radio" id="anexo" name="foto" value="Indefinido"/> Indefinido
 
                         <Link className='button2' to={'/perfil2'}>
