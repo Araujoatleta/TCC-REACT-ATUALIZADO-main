@@ -219,7 +219,7 @@ footer .right-area span {
  
 .s-hero .container { 
     display: flex; 
-    align-items:flex-start; 
+    align-items: flex-start; 
     justify-content: space-between 
 } 
  
@@ -582,6 +582,7 @@ footer .right-area span {
     border: none; 
     cursor: pointer; 
   } 
+  
   .button1s .btt:first-child img { 
     transform: rotate(180deg); 
   } 
@@ -783,27 +784,60 @@ background: var(--gray-dark-01);
  
 .services-carousel { 
     display: flex; /* Flexbox para o carrossel */ 
-    overflow-x: auto; /* Permite rolagem horizontal */ 
-    scroll-behavior: smooth; /* Rolagem suave */ 
+    overflow: hidden; /* Impede a rolagem horizontal */ 
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos botões */ 
+}
+
+/* Estilo da seção de serviços */ 
+.services-section { 
+    padding: 20px; /* Adiciona espaçamento interno */ 
 } 
- 
+
+.services-carousel { 
+    display: flex; /* Flexbox para o carrossel */ 
+    overflow: hidden; /* Impede a rolagem horizontal manual */ 
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos botões */ 
+    width: calc(100% - 100px); /* Ajusta a largura do carrossel */
+    margin: 0; /* Remove margens para centralizar */
+} 
+
+.services-buttons {
+    display: flex;
+    justify-content: space-between; /* Coloca os botões nas extremidades */
+    margin-top: 10px; /* Espaçamento entre o carrossel e os botões */
+}
+
+.btt, .btt2 {
+    width: 60px; /* Largura fixa para os botões */
+    height: 60px; /* Altura fixa para os botões */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    color: white; /* Cor do texto */
+    cursor: pointer; /* Muda o cursor para mão */
+    display: flex; /* Usar flexbox para centralizar o ícone */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    transition: background-color 0.3s; /* Transição suave para mudança de cor do botão */
+}
+
 .service-item { 
     flex: 0 0 auto; /* Impede o encolhimento e permite que o item tenha um tamanho fixo */ 
-    width: 200px; /* Defina uma largura para cada item */ 
-    margin-right: 15px; /* Espaçamento entre os itens */ 
+    width: 283px; /* Defina uma largura para cada item */ 
+    margin-right: 19px; /* Espaçamento entre os itens */ 
     padding: 10px; 
     border: 2px solid #ccc; /* Borda para cada item */ 
-    border-radius: 5px; /* Arredonda as bordas */ 
+    border-radius: 6px; /* Arredonda as bordas */ 
     text-align: center; /* Centraliza o texto */ 
     background-color: #f9f9f9; /* Fundo claro */ 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */ 
     transition: background-color 0.3s; /* Transição suave para mudança de cor */ 
+    height: 394px; /* Altura fixa para os itens */ 
 } 
- 
+
 .service-item:hover { 
     background-color: #e0e0e0; /* Muda a cor de fundo ao passar o mouse */ 
 } 
- 
+
 .service-item button { 
     margin-top: 10px; /* Espaçamento acima do botão */ 
     padding: 5px 10px; /* Tamanho do botão */ 
@@ -814,55 +848,22 @@ background: var(--gray-dark-01);
     cursor: pointer; /* Muda o cursor para mão */ 
     transition: background-color 0.3s; /* Transição suave para mudança de cor do botão */ 
 } 
- 
-.service-item button:hover { 
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */ 
-} 
- 
-/* Estilos adicionais par
-a a barra de rolagem do carrossel */ 
+
+
+/* Estilos adicionais para a barra de rolagem do carrossel */ 
 .services-carousel::-webkit-scrollbar { 
-    height: 8px; /* Altura da barra de rolagem */ 
-} 
- 
+    display: none; /* Remove a barra de rolagem */
+}
+
 .services-carousel::-webkit-scrollbar-thumb { 
     background: #888; /* Cor do "polegar" da barra de rolagem */ 
     border-radius: 10px; /* Bordas arredondadas do polegar */ 
 } 
- 
+
 .services-carousel::-webkit-scrollbar-thumb:hover { 
     background: #555; /* Cor do polegar quando passa o mouse */ 
-} 
-/* Estilo da seção de serviços */ 
-.services-section { 
-    padding: 20px; /* Adiciona espaçamento interno */ 
-} 
- 
-.services-carousel { 
-    display: flex; /* Flexbox para o carrossel */ 
-    overflow-x: auto; /* Permite rolagem horizontal */ 
-    scroll-behavior: smooth; /* Rolagem suave */ 
-} 
- 
-.service-item { 
-    flex: 0 0 auto; 
-    width: 283px; 
-    margin-right: 19px; 
-    padding: 10px; 
-    border: 2px solid #ccc; 
-    border-radius: 6px; 
-    text-align: center; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    transition: background-color 0.3s; 
-    height: 394px; 
-    padding-top: 0px; 
-    padding-left: 0px; 
-    padding-right: 0px; 
-} 
- 
-.service-item:hover { 
-    background-color: #e0e0e0; /* Muda a cor de fundo ao passar o mouse */ 
-} 
+}
+
 .s-relatorio1{ 
     position: relative; 
     width: 100%; 
@@ -1232,3 +1233,35 @@ border: none;
     cursor: pointer; 
     border-radius: 5px; 
   }
+  .carousel1 {
+    display: flex; /* Alinha os itens em uma linha */
+    align-items: center; /* Alinha verticalmente no centro */
+    position: relative; /* Para posicionar os botões */
+}
+
+.button1s, .button2s {
+    position: absolute; /* Permite posicionar os botões */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta a posição para o centro */
+}
+
+.button1s.left {
+    left: 10px; /* Ajuste conforme necessário */
+}
+
+.button2s.right {
+    right: 10px; /* Ajuste conforme necessário */
+}
+
+.btt, .btt2 {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btt:hover, .btt2:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}

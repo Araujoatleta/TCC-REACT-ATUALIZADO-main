@@ -1,12 +1,14 @@
-
 import { useEffect, useRef, useState } from 'react';  
 import { Link } from "react-router-dom";  
 import 'bootstrap/dist/css/bootstrap.css';  
 import backgroundImage from '../../assets/images/background1.png';  
-import gradImage from '../../assets/images/4.svg';  
-import braidsImage from '../../assets/images/5.svg';  
-import drinksImage from '../../assets/images/6.svg';  
-import  meudeusbag from '../../assets/images/7.svg'
+import Acessibilidade from '../../assets/images/4.svg';  
+import degrade from '../../assets/images/5.svg';  
+import tranca from '../../assets/images/6.svg';  
+import bebidas from '../../assets/images/7.svg';
+import jogos from '../../assets/images/8.svg';
+import sinuca from '../../assets/images/9.svg';
+import wifi from '../../assets/images/10.svg';
 import './desktop.css';  
 
 const Desktop = () => {  
@@ -36,61 +38,26 @@ const Desktop = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth;  
   };  
 
+  const itemWidth = 283 + 19; // largura do item + margem direita
+
   const handleServicesLeftClick = (e) => {  
     e.preventDefault();  
-    servicesCarousel.current.scrollLeft -= servicesCarousel.current.offsetWidth / 2;  
+    servicesCarousel.current.scrollLeft -= itemWidth;  
   };  
 
   const handleServicesRightClick = (e) => {  
     e.preventDefault();  
-    servicesCarousel.current.scrollLeft += servicesCarousel.current.offsetWidth / 2;  
+    servicesCarousel.current.scrollLeft += itemWidth;  
   };  
 
-  const handleDragScroll = (ref) => {  
-    let isDown = false;  
-    let startX;  
-    let scrollLeft;  
-
-    ref.current.addEventListener('mousedown', (e) => {  
-      isDown = true;  
-      ref.current.classList.add('active');  
-      startX = e.pageX - ref.current.offsetLeft;  
-      scrollLeft = ref.current.scrollLeft;  
-    });  
-
-    ref.current.addEventListener('mouseleave', () => {  
-      isDown = false;  
-      ref.current.classList.remove('active');  
-    });  
-
-    ref.current.addEventListener('mouseup', () => {  
-      isDown = false;  
-      ref.current.classList.remove('active');  
-    });  
-
-    ref.current.addEventListener('mousemove', (e) => {  
-      if (!isDown) return;  
-      e.preventDefault();  
-      const x = e.pageX - ref.current.offsetLeft;  
-      const walk = (x - startX) * 2;  
-      ref.current.scrollLeft = scrollLeft - walk;  
-    });  
-  };  
-
-  useEffect(() => {  
-    if (servicesCarousel.current) {  
-      handleDragScroll(servicesCarousel);  
-    }  
-  }, [servicesCarousel]);  
-
-  if (!data || !data.length) return null;  
-
-  // Array de serviços com imagens 
   const servicesData = [ 
-    { name: "Degradê", image: gradImage }, 
-    { name: "Tranças", image: braidsImage }, 
-    { name: "Bebidas", image: drinksImage } ,
-    { name: "MEUDEUSBAG", image: meudeusbag }, 
+    { name: "Acessibilidade", image: Acessibilidade }, 
+    { name: "degrade", image: degrade }, 
+    { name: "tranca", image: tranca }, 
+    { name: "bebidas", image: bebidas }, 
+    { name: "jogos", image: jogos }, 
+    { name: "sinuca", image: sinuca },
+    { name: "wifi", image: wifi },
   ]; 
    
   const Relatorio = () => { 
@@ -133,7 +100,7 @@ const Desktop = () => {
                 </Link>  
                 <Link to={'/agenda'}>  
                   <li>Agenda</li>
-</Link>  
+                </Link>  
               </ul>  
             </div>  
           </aside>  
@@ -151,7 +118,7 @@ const Desktop = () => {
         <section className="carousel1"> 
           <div className="button1s left">  
             <button className='btt' onClick={handleLeftClick}>  
-              <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Left" />  
+              <img src="/static/images/setaleft.svg" alt="Scroll Left" />  
             </button>  
           </div>  
           <div className="carousel1" ref={carousel}>  
@@ -168,7 +135,7 @@ const Desktop = () => {
           </div>  
           <div className="button2s right">  
             <button className='btt2' onClick={handleRightClick}>  
-              <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" />  
+              <img src="/static/images/seta.png" alt="Scroll Right" />  
             </button>  
           </div>  
         </section>  
@@ -183,12 +150,16 @@ const Desktop = () => {
             ))}  
           </div>  
           <div className="services-buttons">  
-            <button className='btt' onClick={handleServicesLeftClick}>  
-              <img src="/static/images/setaleft.svg" alt="Scroll Left" />  
-            </button>  
-            <button className='btt2' onClick={handleServicesRightClick}>  
-              <img src="/static/images/seta.png" alt="Scroll Right" />  
-            </button>  
+            <div className="left-button-container">  
+              <button className='btt' onClick={handleServicesLeftClick}>  
+                <img src="/static/images/setaleft.svg" alt="Scroll Left" />  
+              </button>  
+            </div>  
+            <div className="right-button-container">  
+              <button className='btt2' onClick={handleServicesRightClick}>  
+                <img src="/static/images/seta.png" alt="Scroll Right" />  
+              </button>  
+            </div>  
           </div>  
         </section>  
         
@@ -206,12 +177,11 @@ const Desktop = () => {
             Enviar 
           </button> 
         </section>       
-
       </>  
     );  
   }; 
 
-  return <Relatorio />; // Certifique-se de retornar o componente Relatorio no Desktop
+  return <Relatorio />; 
 };  
 
 export default Desktop;
