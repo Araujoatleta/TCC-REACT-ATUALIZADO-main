@@ -9,6 +9,9 @@ import bebidas from '../../assets/images/7.svg';
 import jogos from '../../assets/images/8.svg';
 import sinuca from '../../assets/images/9.svg';
 import wifi from '../../assets/images/10.svg';
+import cafezinho from '../../assets/images/11.svg';
+import custo from '../../assets/images/12.svg';
+
 import './desktop.css';  
 
 const Desktop = () => {  
@@ -58,6 +61,8 @@ const Desktop = () => {
     { name: "jogos", image: jogos }, 
     { name: "sinuca", image: sinuca },
     { name: "wifi", image: wifi },
+    { name: "cafezinho", image: cafezinho },
+    { name: "custo", image: custo },
   ]; 
    
   const Relatorio = () => { 
@@ -139,9 +144,9 @@ const Desktop = () => {
             </button>  
           </div>  
         </section>  
-
+        
+       <div className='h2-desktop'> <h2 className='h2-desktop'>Serviços da Barbearia</h2> </div> 
         <section className="services-section">  
-          <h2>Serviços da Barbearia</h2>  
           <div className="services-carousel" ref={servicesCarousel}>  
             {servicesData.map((service, index) => (  
               <div className="service-item" key={index}>  

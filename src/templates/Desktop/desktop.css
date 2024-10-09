@@ -779,7 +779,8 @@ button {
  /* Estilo da seção de serviços */ 
 .services-section { 
     padding: 20px; /* Adiciona espaçamento interno */ 
-background: var(--gray-dark-01); 
+    background: var(--gray-dark-01); 
+    margin-top: -183px;
 } 
  
 .services-carousel { 
@@ -843,7 +844,6 @@ background: var(--gray-dark-01);
     padding: 5px 10px; /* Tamanho do botão */ 
     border: none; /* Remove a borda */ 
     border-radius: 5px; /* Bordas arredondadas do botão */ 
-    background-color: #007bff; /* Cor de fundo do botão */ 
     color: white; /* Cor do texto do botão */ 
     cursor: pointer; /* Muda o cursor para mão */ 
     transition: background-color 0.3s; /* Transição suave para mudança de cor do botão */ 
@@ -1256,12 +1256,13 @@ border: none;
 .btt, .btt2 {
     padding: 10px;
     border: none;
-    background-color: #007bff;
+
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
-}
 
-.btt:hover, .btt2:hover {
-    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+.h2-desktop{
+   margin-top: 0px;
+   background:var(--gray-dark-01);
 }
