@@ -98,32 +98,6 @@ const Desktop = () => {
           </div>
         </section>
 
-        {/* Novo Carrossel */}
-        <section className="carousel2" style={{ display: 'flex', overflowX: 'hidden' }} onWheel={(e) => handleWheel(e, carousel2)}>
-          <div className="button1s left">
-            <button className='btt' onClick={() => carousel2.current.scrollLeft -= carousel2.current.offsetWidth}>
-              <img src="/static/images/setaleft.svg" alt="Scroll Left" />
-            </button>
-          </div>
-          <div className="carousel" ref={carousel2} style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory' }}>
-            {data.map((item) => {
-              const { id, image } = item; // use the same data for demonstration
-              return (
-                <div className="item" key={id} style={{ flex: '0 0 auto', marginRight: '10px', scrollSnapAlign: 'start' }}>
-                  <div className="image">
-                    <img src={image} alt={`item-${id}`} style={{ width: '100%', height: 'auto' }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="button2s right">
-            <button className='btt2' onClick={() => carousel2.current.scrollLeft += carousel2.current.offsetWidth}>
-              <img src="/static/images/seta.png" alt="Scroll Right" />
-            </button>
-          </div>
-        </section>
-
         <div className='h2-desktop'>
           <h2 className='h2-desktop'>Serviços da Barbearia</h2>
         </div>
