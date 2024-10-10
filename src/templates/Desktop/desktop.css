@@ -727,7 +727,7 @@ button {
   } 
    
   .item { 
-    min-width: 200px; 
+    min-width: 56px; 
     margin: 0 10px; 
   } 
    
@@ -1199,7 +1199,7 @@ background-image: linear-gradient(transparent, #060608);
   .btn-excluir { 
     padding: 5px 10px; 
     background-color: #ff4c4c;
-border: none; 
+    border: none; 
     border-radius: 5px; 
     color: white; 
     cursor: pointer; 

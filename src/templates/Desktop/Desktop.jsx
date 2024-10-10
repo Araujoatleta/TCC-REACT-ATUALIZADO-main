@@ -77,6 +77,55 @@ const Desktop = () => {
         alert("Por favor, adicione um texto no relatório."); 
       } 
     }; 
+    const Carrossel = () => {
+      const [barbearias, setBarbearias] = useState([
+  
+      ]);
+  
+      const handleAddNewItem = (event) => {
+          const file = event.target.files[0]; // Pega o primeiro arquivo selecionado
+  
+          if (file) {
+              const reader = new FileReader(); // Cria um FileReader para ler a imagem
+  
+              reader.onload = (e) => {
+                  const newBarbearia = {
+                      id: barbearias.length + 1,
+                      img: e.target.result, // Usa o resultado do FileReader como fonte da imagem
+                      name: 'Nova Barbearia',
+                      status: 'Ativa',
+                  };
+  
+                  // Atualiza o estado com a nova barbearia
+                  setBarbearias((prevBarbearias) => [...prevBarbearias, newBarbearia]);
+              };
+  
+              // Lê o arquivo de imagem como URL
+              reader.readAsDataURL(file);
+          }
+      };
+      return (
+        <section className="carrossel">
+            <h3>Sua(s) barbearia(s) disponível(is):</h3>
+            <div className="carrossel-container">
+                {barbearias.map((barbearia) => (
+                    <div className="item" key={barbearia.id}>
+                        <img src={barbearia.img} alt={barbearia.name} />
+                        <p>{barbearia.name}</p>
+                        <span className={`status ${barbearia.status === 'Ativa' ? 'ativa' : 'desativa'}`}>
+                            {barbearia.status}
+                        </span>
+                    </div>
+                ))}
+                <div className="item add-new" onClick={() => document.getElementById('addImageInput').click()}>
+                    <p>+</p>
+                    <input type="file" id="addImageInput" accept="image/*" style={{ display: 'none' }} onChange={handleAddNewItem} />
+                </div>
+            </div>
+        </section>
+    );
+};
+
 
     return (  
       <>  
@@ -182,10 +231,12 @@ const Desktop = () => {
             Enviar 
           </button> 
         </section>       
+        <Carrossel />
       </>  
     );  
   }; 
-
+  
+ 
   return <Relatorio />; 
 };  
 
