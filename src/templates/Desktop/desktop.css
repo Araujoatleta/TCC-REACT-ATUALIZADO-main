@@ -1275,3 +1275,19 @@ background-image: linear-gradient(transparent, #060608);
    margin-top: 0px;
    background:var(--gray-dark-01);
 }
+  .carousel {
+    overflow: hidden; /* Oculta a barra de rolagem */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari e Opera */
+  }
+  
+  /* Se você precisar que a barra de rolagem não apareça em todos os carrosseis */
+  .carousel1,
+  .carousel2 {
+    overflow-x: auto; /* Permite rolagem horizontal */
+    -ms-overflow-style: none;  /* IE e Edge */
+  }
+  
