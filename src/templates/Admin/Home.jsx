@@ -8,22 +8,9 @@ import './Home.css';
 import backgroundImage from '../../assets/images/background1.png'; 
 import Image1 from '../../assets/images/imagem.svg'; 
 import Imagem from '../../assets/images/footer.png'; 
-import api from '../../services/api';  // Importando a configuração do axios
 
 const Home = () => { 
-  const [data, setData] = useState([]); 
   const carousel = useRef(null); 
-
-  useEffect(() => { 
-    // Fazendo requisição ao backend para buscar os dados
-    api.get('/admin')  // Supondo que o backend tem um endpoint /admin
-      .then((response) => {
-        setData(response.data);  // Armazena os dados da API no estado
-      })
-      .catch((error) => {
-        console.error('Erro ao buscar dados do backend', error);
-      });
-  }, []); 
 
   const handleLeftClick = (e) => { 
     e.preventDefault(); 
@@ -34,8 +21,6 @@ const Home = () => {
     e.preventDefault(); 
     carousel.current.scrollLeft += carousel.current.offsetWidth; 
   }; 
-
-  if (!data || !data.length) return null; 
 
   return ( 
     <> 
@@ -70,61 +55,72 @@ const Home = () => {
         </aside> 
       </header> 
 
-      <section className="s-hero" style={{ backgroundImage: url`(${backgroundImage})` }}> 
+      <section className="s-hero" style={{ backgroundImage: `url(${backgroundImage})` }}> 
         <div className="container"> 
           <div className="left-area"> 
             <h1>Admin Area</h1> 
-            <p>  
-              Olá! Esta é a área administrativa do nosso site, aqui você pode gerir sua(s) barbearia(s), 
-              membros da sua equipe, ver avaliações e etc.  
+            <p>
+              Olá! Esta é a área administrativa do nosso site, aqui você pode gerir sua(s) barbearia(s), membros da sua equipe, ver avaliações e etc.  
               Clique em nossa logo presente no canto superior esquerdo para abrir o menu de opções.  
             </p> 
           </div> 
         </div> 
-      </section> 
+      </section>
 
-      <section className='carousel1'> 
-        <div className="carousel1" ref={carousel}> 
-          {data.map((item) => { 
-            const { id, image } = item; 
-            return ( 
-              <div className="item" key={id}> 
-                <div className="image"> 
-                  <img src={image} alt="admin" /> 
-                </div> 
-              </div> 
-            ); 
-          })} 
-        </div> 
+      {/* Removido a parte que causava o erro */}
+      {/* Se precisar adicionar um carrossel, defina a variável data antes de usá-la */}
 
-        <div className="button1s"> 
-          <button className='btt' onClick={handleLeftClick}> 
-            <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Left" /> 
-          </button> 
-        </div> 
+      {/* Se você tiver dados para o carrossel, adicione aqui */}
+      {/* Exemplo:
+      const data = [
+        { id: 1, image: Image1 },
+        // Outros itens
+      ];
+      */}
 
-        <div className="button2s"> 
-          <button className='btt2' onClick={handleRightClick}> 
-            <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" /> 
-          </button> 
-        </div> 
-      </section> 
+      {/* Se precisar do carrossel, descomente e preencha os dados */}
+      {/* <section className='carousel1'> */}
+      {/*   <div className="carousel1" ref={carousel}> */}
+      {/*     {data.map((item) => { */}
+      {/*       const { id, image } = item; */}
+      {/*       return ( */}
+      {/*         <div className="item" key={id}> */}
+      {/*           <div className="image"> */}
+      {/*             <img src={image} alt="admin" /> */}
+      {/*           </div> */}
+      {/*         </div> */}
+      {/*       ); */}
+      {/*     })} */}
+      {/*   </div>} */}
 
-      <section className="s-villain" style={{ backgroundImage: url`(${Image1})` }}> 
+      {/*   <div className="button1s"> */}
+      {/*     <button className='btt' onClick={handleLeftClick}> */}
+      {/*       <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Left" /> */}
+      {/*     </button> */}
+      {/*   </div>} */}
+
+      {/*   <div className="button2s"> */}
+      {/*     <button className='btt2' onClick={handleRightClick}> */}
+      {/*       <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" /> */}
+      {/*     </button> */}
+      {/*   </div>} */}
+      {/* </section>} */}
+
+      <section className="s-villain" style={{ backgroundImage: `url(${Image1})` }}> 
         <div className="container"> 
           <img src="../img/i" alt="villain" /> 
         </div> 
-      </section> 
+      </section>
 
-      <footer> 
-        <h2 className="Depoimento">DEPOIMENTOS</h2> 
+      <footer>
+        <h2 className="Depoimento">DEPOIMENTOS</h2>
         <div className="text-section">
-<p className="testimonial-text">"Desde que comecei a parceria com a BC (Barber's Club) nunca mais tive problemas com horários e agendamentos"</p> 
-          <p className="author">"R10"</p> 
-          <img src={Imagem} id="imagem-footer" alt="footer" /> 
-        </div> 
-      </footer> 
-    </> 
+          <p className="testimonial-text">"Desde que comecei a parceria com a BC (Barber's Club) nunca mais tive problemas com horários e agendamentos"</p>
+          <p className="author">"R10"</p>
+          <img src={Imagem} id="imagem-footer" alt="footer" />
+        </div>
+      </footer>
+    </>
   ); 
 }; 
 
