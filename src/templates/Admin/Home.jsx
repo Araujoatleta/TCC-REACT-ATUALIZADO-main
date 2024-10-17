@@ -22,6 +22,31 @@ const Home = () => {
     carousel.current.scrollLeft += carousel.current.offsetWidth; 
   }; 
 
+  const [barbearias, setBarbearias] = useState([]);
+
+  const handleAddNewItem = (event) => {
+    const file = event.target.files[0]; // Pega o primeiro arquivo selecionado
+
+    if (file) {
+      const reader = new FileReader(); // Cria um FileReader para ler a imagem
+
+      reader.onload = (e) => {
+        const newBarbearia = {
+          id: barbearias.length + 1,
+          img: e.target.result, // Usa o resultado do FileReader como fonte da imagem
+          name: 'Nova Barbearia',
+          status: 'Ativa',
+        };
+
+        // Atualiza o estado com a nova barbearia
+        setBarbearias((prevBarbearias) => [...prevBarbearias, newBarbearia]);
+      };
+
+      // Lê o arquivo de imagem como URL
+      reader.readAsDataURL(file);
+    }
+  };
+
   return ( 
     <> 
       <header>      
@@ -53,65 +78,49 @@ const Home = () => {
             </ul> 
           </div> 
         </aside> 
-      </header> 
+      </header>
 
       <section className="s-hero" style={{ backgroundImage: `url(${backgroundImage})` }}> 
         <div className="container"> 
           <div className="left-area"> 
-            <h1>Admin Area</h1> 
+            <h1>Admin Area</h1>
             <p>
               Olá! Esta é a área administrativa do nosso site, aqui você pode gerir sua(s) barbearia(s), membros da sua equipe, ver avaliações e etc.  
               Clique em nossa logo presente no canto superior esquerdo para abrir o menu de opções.  
-            </p> 
-          </div> 
-        </div> 
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Removido a parte que causava o erro */}
-      {/* Se precisar adicionar um carrossel, defina a variável data antes de usá-la */}
+      {/* Seção do Carrossel */}
+      <section className="carrossel">
+        <h3>Sua(s) barbearia(s) disponível(is):</h3>
+        <div className="carrossel-container" ref={carousel}>
+          {barbearias.map((barbearia) => (
+            <div className="item" key={barbearia.id}>
+              <img src={barbearia.img} alt={barbearia.name} />
+              <p>{barbearia.name}</p>
+              <span className={`status ${barbearia.status === 'Ativa' ? 'ativa' : 'desativa'}`}>
+                {barbearia.status}
+              </span>
+            </div>
+          ))}
+          {/* Botão para adicionar nova barbearia */}
+          <div className="item add-new" onClick={() => document.getElementById('addImageInput').click()}>
+            <p>+</p>
+            <input type="file" id="addImageInput" accept="image/*" style={{ display: 'none' }} onChange={handleAddNewItem} />
+          </div>
+        </div>
+      </section>
 
-      {/* Se você tiver dados para o carrossel, adicione aqui */}
-      {/* Exemplo:
-      const data = [
-        { id: 1, image: Image1 },
-        // Outros itens
-      ];
-      */}
-
-      {/* Se precisar do carrossel, descomente e preencha os dados */}
-      {/* <section className='carousel1'> */}
-      {/*   <div className="carousel1" ref={carousel}> */}
-      {/*     {data.map((item) => { */}
-      {/*       const { id, image } = item; */}
-      {/*       return ( */}
-      {/*         <div className="item" key={id}> */}
-      {/*           <div className="image"> */}
-      {/*             <img src={image} alt="admin" /> */}
-      {/*           </div> */}
-      {/*         </div> */}
-      {/*       ); */}
-      {/*     })} */}
-      {/*   </div>} */}
-
-      {/*   <div className="button1s"> */}
-      {/*     <button className='btt' onClick={handleLeftClick}> */}
-      {/*       <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Left" /> */}
-      {/*     </button> */}
-      {/*   </div>} */}
-
-      {/*   <div className="button2s"> */}
-      {/*     <button className='btt2' onClick={handleRightClick}> */}
-      {/*       <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" /> */}
-      {/*     </button> */}
-      {/*   </div>} */}
-      {/* </section>} */}
-
+      {/* Seção do vilão */}
       <section className="s-villain" style={{ backgroundImage: `url(${Image1})` }}> 
         <div className="container"> 
           <img src="../img/i" alt="villain" /> 
         </div> 
       </section>
 
+      {/* Rodapé */}
       <footer>
         <h2 className="Depoimento">DEPOIMENTOS</h2>
         <div className="text-section">
