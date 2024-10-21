@@ -185,22 +185,24 @@ const Agenda = () => {
         </div>
         </div>
         
-            {/* Carousel Section */}
-            {data.length > 0 && (
-                <section className='carousel1'>
-                    <div className="carousel1" ref={carousel}>
-                        {data.map((item) => {
-                            const { id, image } = item;
-                            return (
-                                <div className="item" key={id}>
-                                    <div className="image">
-                                        <img src={image} alt={`Imagem ${id}`} />
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-
+        <section className="carousel1" style={{ display: 'flex', overflowX: 'hidden' }} onWheel={(e) => handleWheel(e, carousel)}>
+          <div className="button1s left">
+            <button className='btt' onClick={() => carousel.current.scrollLeft -= carousel.current.offsetWidth}>
+              <img src="/static/images/setaleft.svg" alt="Scroll Left" />
+            </button>
+          </div>
+          <div className="carousel" ref={carousel} style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory' }}>
+            {data.map((item) => {
+              const { id, image } = item;
+              return (
+                <div className="item" key={id} style={{ flex: '0 0 auto', marginRight: '10px', scrollSnapAlign: 'start' }}>
+                  <div className="image">
+                    <img src={image} alt={`item-${id}`} style={{ width: '100%', height: 'auto' }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
                     {/* Buttons for Carousel */}
                     <div className="button1s">
                         <button className='btt' onClick={handleLeftClick}>
@@ -214,7 +216,6 @@ const Agenda = () => {
                         </button>
                     </div>  
                 </section> 
-            )}
 
             {/* New Section for Services and Schedules */}
             <section className="services-schedules">
@@ -234,21 +235,6 @@ const Agenda = () => {
                 {/* Your existing content */}
                 {/* ... */}
             </section>
-                        {/* Carousel Section */}
-                        {data.length > 0 && (
-                <section className='carousel1'>
-                    <div className="carousel1" ref={carousel}>
-                        {data.map((item) => {
-                            const { id, image } = item;
-                            return (
-                                <div className="item" key={id}>
-                                    <div className="image">
-                                        <img src={image} alt={`Imagem ${id}`} />
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
 
                     {/* Buttons for Carousel */}
                     <div className="button1s">
@@ -262,8 +248,6 @@ const Agenda = () => {
                             <img src="/static/images/216151_right_chevron_icon.png" alt="Scroll Right" />
                         </button>
                     </div>  
-                </section> 
-            )}
   
         </>
     );

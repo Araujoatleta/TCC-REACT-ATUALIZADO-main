@@ -112,12 +112,11 @@ const Desktop = () => {
   <section className="s-hero"  style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="container">
         <div className="left-area">
-          <h1>Admin Area</h1>
+          <h1>Desktop</h1>
           
           <p> 
-            Olá! Esta é a área administrativa do nosso site, aqui você pode gerir sua(s) barbearia(s),
-            membros da sua equipe, ver avaliações e etc. 
-            Clique em nossa logo presente no canto superior esquerdo para abrir o menu de opções. 
+          Aqui está sua área de trabalho onde você têm possibilidade de modificar 
+e mapunilar conceitos que não julgar adequados na barbearia.
           </p>
           </div>
         </div>

@@ -70,7 +70,7 @@ const Home = () => {
         </aside> 
       </header> 
 
-      <section className="s-hero" style={{ backgroundImage: url`(${backgroundImage})` }}> 
+      <section className="s-hero" style={{ backgroundImage: `url(${backgroundImage})` }}> 
         <div className="container"> 
           <div className="left-area"> 
             <h1>Admin Area</h1> 
@@ -110,7 +110,7 @@ const Home = () => {
         </div> 
       </section> 
 
-      <section className="s-villain" style={{ backgroundImage: url`(${Image1})` }}> 
+      <section className="s-villain" style={{ backgroundImage: `url(${Image1})` }}> 
         <div className="container"> 
           <img src="../img/i" alt="villain" /> 
         </div> 

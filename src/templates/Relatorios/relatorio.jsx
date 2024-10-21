@@ -1,20 +1,38 @@
 import { Link } from "react-router-dom";
-import { useState } from "react"; // Importando o Hook de estado
+import { useState } from "react";
+import axios from 'axios'; // Importando axios
 import 'bootstrap/dist/css/bootstrap.css';
 import './relatorio.css'; 
 import backgroundImage from '../../assets/images/background1.png';
 import BackgroundImagem1 from '../../assets/images/img-relatorio.svg';
 
 const Relatorio = () => {
-  // Estados para gerenciar o texto do relatório e o histórico
-  const [relatorioTexto, setRelatorioTexto] = useState(""); // Estado para o conteúdo da caixa de texto
-  const [historico, setHistorico] = useState([]); // Estado para armazenar os itens do histórico
+  const [relatorioTexto, setRelatorioTexto] = useState("");
+  const [historico, setHistorico] = useState([]);
 
   // Função para adicionar um relatório ao histórico
-  const enviarRelatorio = () => {
+  const enviarRelatorio = async () => {
     if (relatorioTexto.trim() !== "") {
-      setHistorico([...historico, relatorioTexto]); // Adiciona o novo relatório ao histórico
-      setRelatorioTexto(""); // Limpa o campo de texto após o envio
+      try {
+        const response = await axios.post('http://localhost:8080/admin/relatorio', {
+          email: "example@example.com", // Substitua por dados reais
+          senha: "senha123",             // Substitua por dados reais
+          texto: relatorioTexto           // O texto do relatório
+        });
+
+        setHistorico([...historico, response.data.texto]); 
+        setRelatorioTexto(""); // Limpa o campo de texto após o envio
+      } catch (error) {
+        console.error("Erro ao enviar relatório:", error);
+        
+        if (error.response) {
+          alert(`Erro: ${error.response.status} - ${error.response.data}`);
+        } else if (error.request) {
+          alert("Erro na requisição. O servidor não respondeu.");
+        } else {
+          alert("Erro desconhecido: " + error.message);
+        }
+      }
     } else {
       alert("Por favor, adicione um texto no relatório.");
     }
@@ -23,12 +41,12 @@ const Relatorio = () => {
   // Função para excluir um item do histórico
   const excluirRelatorio = (index) => {
     const novoHistorico = historico.filter((_, i) => i !== index);
-    setHistorico(novoHistorico); // Atualiza o histórico com o item removido
+    setHistorico(novoHistorico);
   };
 
   return (
     <>
-      <header>     
+      <header>
         <aside>
           <div id="menuToggle">
             <input type="checkbox" />
@@ -36,34 +54,18 @@ const Relatorio = () => {
             <span></span>
             <span></span>
             <ul className="menu" data-theme='t-orange'>
-          <Link to={'/'}>
-                  <li>Home</li>
-              </Link>
-             
-              <Link to={'/home'}>
-        
-                  <li>Barber Area</li>
-                  </Link>
-              
-              <Link to={'/desktop'}>
-                  <li>Desktop</li>
-              </Link>
-
-              <Link to={'/perfil'}>
-                <li>Editar Perfil</li>
-              </Link>
-              <Link to={'/relatorio'}>
-                <li>Relatórios</li>
-            </Link>
-            <Link to={'/agenda'}>
-                <li>Agenda</li>
-            </Link>
-          </ul>
+              <Link to={'/'}><li>Home</li></Link>
+              <Link to={'/home'}><li>Barber Area</li></Link>
+              <Link to={'/desktop'}><li>Desktop</li></Link>
+              <Link to={'/perfil'}><li>Editar Perfil</li></Link>
+              <Link to={'/relatorio'}><li>Relatórios</li></Link>
+              <Link to={'/agenda'}><li>Agenda</li></Link>
+            </ul>
           </div>
         </aside>
       </header>
 
-      <section className="s-hero" style={{ backgroundImage: `url(${backgroundImage}) `}}>
+      <section className="s-hero" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="container">
           <div className="left-area">
             <h1>Relatórios</h1>
@@ -86,7 +88,8 @@ const Relatorio = () => {
           Enviar
         </button>
       </section>
-      <section className="s-relatorio" style={{ backgroundImage: `url(${BackgroundImagem1}) `}}>
+
+      <section className="s-relatorio" style={{ backgroundImage: `url(${BackgroundImagem1})` }}>
       </section>
 
       <section className="historico">
