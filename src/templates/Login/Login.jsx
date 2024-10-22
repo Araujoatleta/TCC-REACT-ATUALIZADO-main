@@ -59,7 +59,7 @@ const Login = () => {
                                     <input type="checkbox"/> Remember me
                                 </label>
                                 <label>
-                                    <a href="../Senha/index.html">Forgot password?</a>
+                                <Link to={'/forgotpass'}>Forgot password?</Link>
                                 </label>
                             </div>
                             <button type="submit" className='btn btn-sm btn-warning'>

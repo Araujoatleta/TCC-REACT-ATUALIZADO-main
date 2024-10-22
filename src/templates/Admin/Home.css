@@ -579,3 +579,73 @@ footer .right-area span {
   #logo1{
     margin-left:160rem; 
   } 
+  .carrossel {
+    text-align: center;
+    background: var(--gray-dark-01);
+    margin-top: -239px;
+}
+
+.carrossel-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.item {
+    margin: 0 10px;
+    text-align: center;
+}
+
+.item img {
+    width: 100px;
+    height: 100px;
+}
+
+.status {
+    display: block;
+    margin-top: 5px;
+}
+
+.ativa {
+    color: green;
+}
+
+.desativa {
+    color: red;
+}
+
+.add-new {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #444;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2em;
+}
+
+.add-new input {
+    display: none;
+}
+.rating {
+    display: flex;
+}
+
+.rating input[type='radio'] {
+    display: none; /* Esconde os inputs */
+}
+
+.rating label {
+    cursor: pointer;
+    font-size: 24px; /* Tamanho das estrelas */
+    color: gray; /* Cor padrão das estrelas */
+}
+
+.rating input[type='radio']:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold; /* Cor das estrelas quando selecionadas ou em hover */
+}

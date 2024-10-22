@@ -23,6 +23,7 @@ import Agenda from "../templates/Agenda/Agenda"
 import Perfil from "../templates/Perfil/Perfil"
 import Perfil2 from "../templates/Perfil/Perfil2"
 import Desktop from "../templates/Desktop/Desktop"
+import Forgotpass from "../templates/Login/Forgotpass"
 
 const AppRoutes = () => {
   return (
